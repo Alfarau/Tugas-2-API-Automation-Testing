@@ -1,0 +1,240 @@
+{
+  "stats": {
+    "suites": 4,
+    "tests": 5,
+    "passes": 4,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-05-04T10:36:11.953Z",
+    "end": "2025-05-04T10:36:16.808Z",
+    "duration": 4855,
+    "testsRegistered": 5,
+    "passPercent": 80,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "8c158ba7-433c-43e5-8161-2adbec2a7135",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d256f9a7-3549-4d77-aca5-79d1893c722a",
+          "title": "Auth - Get Token",
+          "fullFile": "C:\\Users\\alfar\\Downloads\\Tugas 2\\Tugas-2-API-Automation-Testing\\API\\script\\api-bookings.js",
+          "file": "\\API\\script\\api-bookings.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Get token successfully",
+              "fullTitle": "Auth - Get Token Get token successfully",
+              "timedOut": false,
+              "duration": 1013,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const response = await request\n    .post(\"/auth\")\n    .send({\n        username: BOOKING_DATA.username,\n        password: BOOKING_DATA.password\n    });\nexpect(response.status).to.eql(200);\nexpect(response.body).to.have.property(\"token\");\ntoken = response.body.token;",
+              "err": {},
+              "uuid": "26dab92e-c69f-4e95-9f6c-486a1f5c3254",
+              "parentUUID": "d256f9a7-3549-4d77-aca5-79d1893c722a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "26dab92e-c69f-4e95-9f6c-486a1f5c3254"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1013,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "1d89b16c-4bfb-4ed5-aca5-4c2ad8f6d279",
+          "title": "Create Booking",
+          "fullFile": "C:\\Users\\alfar\\Downloads\\Tugas 2\\Tugas-2-API-Automation-Testing\\API\\script\\api-bookings.js",
+          "file": "\\API\\script\\api-bookings.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Create Booking Success",
+              "fullTitle": "Create Booking Create Booking Success",
+              "timedOut": false,
+              "duration": 975,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const res = await request\n  .post(\"/booking\")\n  .set(\"Content-Type\", \"application/json\")\n\t  .set(\"Accept\", \"application/json\")\n  .send({\n    firstname: BOOKING_DATA.firstname,\n    lastname: BOOKING_DATA.lastname,\n    totalprice: BOOKING_DATA.price,\n    depositpaid: true,\n    bookingdates: {\n      checkin: \"2025-05-04\",\n      checkout: \"2026-05-04\",\n    },\n    additionalneeds: \"Breakfast\",\n  });\nexpect(res.status).to.eql(200);\nexpect(res.body.booking.firstname).to.eql(BOOKING_DATA.firstname);\nexpect(res.body.booking.lastname).to.eql(BOOKING_DATA.lastname);\nexpect(res.body.booking.totalprice).to.eql(BOOKING_DATA.price);\nbookingID = res.body.bookingid;",
+              "err": {},
+              "uuid": "c46b53c4-cc1b-45b0-a430-d21cf182e9ff",
+              "parentUUID": "1d89b16c-4bfb-4ed5-aca5-4c2ad8f6d279",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c46b53c4-cc1b-45b0-a430-d21cf182e9ff"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 975,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "e74df414-2649-4056-aff5-e4a9534e0e7b",
+          "title": "Get Booking",
+          "fullFile": "C:\\Users\\alfar\\Downloads\\Tugas 2\\Tugas-2-API-Automation-Testing\\API\\script\\api-bookings.js",
+          "file": "\\API\\script\\api-bookings.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "GET Booking by ID Success",
+              "fullTitle": "Get Booking GET Booking by ID Success",
+              "timedOut": false,
+              "duration": 962,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const res = await request\n.get(\"/booking/\" + bookingID)\n.set(\"Accept\", \"application/json\");\nexpect(res.status).to.eql(200);\nexpect(res.body.firstname).to.eql(BOOKING_DATA.firstname);\nexpect(res.body.lastname).to.eql(BOOKING_DATA.lastname);\nexpect(res.body.totalprice).to.eql(BOOKING_DATA.price);",
+              "err": {},
+              "uuid": "f726ad77-9368-493c-af60-d8e9d7175a26",
+              "parentUUID": "e74df414-2649-4056-aff5-e4a9534e0e7b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "GET Booking by ID Failed - Invalid Booking ID",
+              "fullTitle": "Get Booking GET Booking by ID Failed - Invalid Booking ID",
+              "timedOut": false,
+              "duration": 951,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const res = await request.get(\"/booking/\" +bookingID+ \"123\");\nexpect(res.status).to.eql(404);",
+              "err": {},
+              "uuid": "70e12d42-10b5-49b7-bdc6-ace793e706b8",
+              "parentUUID": "e74df414-2649-4056-aff5-e4a9534e0e7b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f726ad77-9368-493c-af60-d8e9d7175a26",
+            "70e12d42-10b5-49b7-bdc6-ace793e706b8"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1913,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "cbe8ca38-d33c-4f25-b6e4-e04e74916c51",
+          "title": "Delete Booking",
+          "fullFile": "C:\\Users\\alfar\\Downloads\\Tugas 2\\Tugas-2-API-Automation-Testing\\API\\script\\api-bookings.js",
+          "file": "\\API\\script\\api-bookings.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Delete Booking Success",
+              "fullTitle": "Delete Booking Delete Booking Success",
+              "timedOut": false,
+              "duration": 944,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const response = await request\n    .del(\"/booking/\"+bookingID)\n    .set(\"Content-Type\", \"application/json\")\n    .set({ Authorization: \"Basic \"+token});\nexpect(response.status).to.eql(201);\n//ini gatau kenapa 403 terus, coba di postman juga tetep kena 403 forbidden",
+              "err": {
+                "message": "AssertionError: expected 403 to deeply equal 201",
+                "estack": "AssertionError: expected 403 to deeply equal 201\n    at Context.<anonymous> (API\\script\\api-bookings.js:79:36)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+                "diff": "- 403\n+ 201\n"
+              },
+              "uuid": "6bdbc3fe-a609-43d9-bd25-5ed334038b88",
+              "parentUUID": "cbe8ca38-d33c-4f25-b6e4-e04e74916c51",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "6bdbc3fe-a609-43d9-bd25-5ed334038b88"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 944,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "11.2.2"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}

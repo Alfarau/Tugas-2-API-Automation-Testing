@@ -1,2 +1,8 @@
-# Tugas-2-API-Automation-Testing
-Tugas Intensive Class QA Automation Cypress
+# Tugas-2-API-Automation
+Tugas Bootcamp AfterOffice
+Alfarau Al Ababil
+alfarau.id@gmail.com
+
+script:
+    - npx mocha .\API\script\api-bookings.js
+    - npx mocha .\API\script\api-bookings.js --reporter mochawesome
