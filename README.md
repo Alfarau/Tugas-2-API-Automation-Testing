@@ -1,9 +1,9 @@
 Tugas-2-API-Automation
 =======================
 
-Tugas Bootcamp AfterOffice
-Nama: Alfarau Al Ababil
-Email: alfarau.id@gmail.com
+> Tugas Bootcamp AfterOffice  
+> **Alfarau Al Ababil**  
+> 📧 alfarau.id@gmail.com
 
 ------------------------------------
 Deskripsi Proyek
