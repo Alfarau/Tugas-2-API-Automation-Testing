@@ -25,8 +25,8 @@ Struktur Folder
 ------------------------------------
 API/
 ├── script/
-│   └── api-bookings.js   (script test utama)
-├── reports/              (opsional, lokasi report mochawesome)
+│   └── api-bookings.js     (script test utama)
+└── reports/                (opsional, lokasi report mochawesome)
 
 ------------------------------------
 Cara Menjalankan Test
